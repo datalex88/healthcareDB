@@ -1,0 +1,317 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- build 20183.18.1219.1533                               -->
+<workbook source-build='2018.3.2 (20183.18.1219.1533)' source-platform='mac' version='18.1' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <document-format-change-manifest>
+    <SortTagCleanup />
+    <WindowsPersistSimpleIdentifiers />
+  </document-format-change-manifest>
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <datasources>
+    <datasource caption='vAppointmentsByPatientsDoctorsAndClinics (InfoFinalDB_Davisa88)' inline='true' name='federated.0jqf0kg034p2771dpos1c0l27xtq' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='is-mschmalz01.ischool.uw.edu' name='sqlserver.1liq73t19kqjlh14bt3os13nl7e9'>
+            <connection authentication='sspi' class='sqlserver' dbname='InfoFinalDB_Davisa88' odbc-native-protocol='yes' one-time-sql='' server='is-mschmalz01.ischool.uw.edu' username='info330summer2019' />
+          </named-connection>
+        </named-connections>
+        <relation connection='sqlserver.1liq73t19kqjlh14bt3os13nl7e9' name='tblPatient' table='[dbo].[tblPatient]' type='table' />
+        <metadata-records>
+          <metadata-record class='column'>
+            <remote-name>PatientId</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[PatientId]</local-name>
+            <parent-name>[tblPatient]</parent-name>
+            <remote-alias>PatientId</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>false</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>PatientFirstName</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[PatientFirstName]</local-name>
+            <parent-name>[tblPatient]</parent-name>
+            <remote-alias>PatientFirstName</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>50</width>
+            <contains-null>false</contains-null>
+            <padded-semantics>true</padded-semantics>
+            <collation flag='2147483649' name='LEN_RUS_S2_VWIN' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_WVARCHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_WCHAR&quot;</attribute>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>PatientLastName</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[PatientLastName]</local-name>
+            <parent-name>[tblPatient]</parent-name>
+            <remote-alias>PatientLastName</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>50</width>
+            <contains-null>false</contains-null>
+            <padded-semantics>true</padded-semantics>
+            <collation flag='2147483649' name='LEN_RUS_S2_VWIN' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_WVARCHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_WCHAR&quot;</attribute>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>PatientPhoneNumber</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[PatientPhoneNumber]</local-name>
+            <parent-name>[tblPatient]</parent-name>
+            <remote-alias>PatientPhoneNumber</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>50</width>
+            <contains-null>false</contains-null>
+            <padded-semantics>true</padded-semantics>
+            <collation flag='2147483649' name='LEN_RUS_S2_VWIN' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_WVARCHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_WCHAR&quot;</attribute>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>PatientAddress1</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[PatientAddress1]</local-name>
+            <parent-name>[tblPatient]</parent-name>
+            <remote-alias>PatientAddress1</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>50</width>
+            <contains-null>false</contains-null>
+            <padded-semantics>true</padded-semantics>
+            <collation flag='2147483649' name='LEN_RUS_S2_VWIN' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_WVARCHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_WCHAR&quot;</attribute>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>PatientAddress2</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[PatientAddress2]</local-name>
+            <parent-name>[tblPatient]</parent-name>
+            <remote-alias>PatientAddress2</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>50</width>
+            <contains-null>true</contains-null>
+            <padded-semantics>true</padded-semantics>
+            <collation flag='2147483649' name='LEN_RUS_S2_VWIN' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_WVARCHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_WCHAR&quot;</attribute>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>PatientCity</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[PatientCity]</local-name>
+            <parent-name>[tblPatient]</parent-name>
+            <remote-alias>PatientCity</remote-alias>
+            <ordinal>7</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>50</width>
+            <contains-null>false</contains-null>
+            <padded-semantics>true</padded-semantics>
+            <collation flag='2147483649' name='LEN_RUS_S2_VWIN' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_WVARCHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_WCHAR&quot;</attribute>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>PatientState</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[PatientState]</local-name>
+            <parent-name>[tblPatient]</parent-name>
+            <remote-alias>PatientState</remote-alias>
+            <ordinal>8</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>2</width>
+            <contains-null>false</contains-null>
+            <padded-semantics>true</padded-semantics>
+            <collation flag='2147483649' name='LEN_RUS_S2_VWIN' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_WVARCHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_WCHAR&quot;</attribute>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>PatientZip</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[PatientZip]</local-name>
+            <parent-name>[tblPatient]</parent-name>
+            <remote-alias>PatientZip</remote-alias>
+            <ordinal>9</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>5</width>
+            <contains-null>false</contains-null>
+            <padded-semantics>true</padded-semantics>
+            <collation flag='2147483649' name='LEN_RUS_S2_VWIN' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_WVARCHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_WCHAR&quot;</attribute>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+        <calculation class='tableau' formula='1' />
+      </column>
+      <column caption='Patient City' datatype='string' name='[PatientCity]' role='dimension' type='nominal' />
+      <column caption='Patient First Name' datatype='string' name='[PatientFirstName]' role='dimension' type='nominal' />
+      <column caption='Patient Id' datatype='integer' name='[PatientId]' role='dimension' type='ordinal' />
+      <column caption='Patient Last Name' datatype='string' name='[PatientLastName]' role='dimension' type='nominal' />
+      <column caption='Patient Phone Number' datatype='string' name='[PatientPhoneNumber]' role='dimension' type='nominal' />
+      <column caption='Patient State' datatype='string' name='[PatientState]' role='dimension' type='nominal' />
+      <column caption='Patient Zip' datatype='string' name='[PatientZip]' role='dimension' type='nominal' />
+      <layout dim-ordering='alphabetic' dim-percentage='0.56877' measure-ordering='alphabetic' measure-percentage='0.43123' show-structure='true' />
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;United States&quot;' />
+      </semantic-values>
+    </datasource>
+  </datasources>
+  <worksheets>
+    <worksheet name='Sheet 1'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='vAppointmentsByPatientsDoctorsAndClinics (InfoFinalDB_Davisa88)' name='federated.0jqf0kg034p2771dpos1c0l27xtq' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0jqf0kg034p2771dpos1c0l27xtq'>
+            <column caption='Patient City' datatype='string' name='[PatientCity]' role='dimension' type='nominal' />
+            <column caption='Patient First Name' datatype='string' name='[PatientFirstName]' role='dimension' type='nominal' />
+            <column-instance column='[PatientFirstName]' derivation='Count' name='[cnt:PatientFirstName:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[PatientCity]' derivation='None' name='[none:PatientCity:nk]' pivot='key' type='nominal' />
+          </datasource-dependencies>
+          <computed-sort column='[federated.0jqf0kg034p2771dpos1c0l27xtq].[none:PatientCity:nk]' direction='DESC' using='[federated.0jqf0kg034p2771dpos1c0l27xtq].[cnt:PatientFirstName:qk]' />
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='cell'>
+            <format attr='width' field='[federated.0jqf0kg034p2771dpos1c0l27xtq].[none:PatientCity:nk]' value='42' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Bar' />
+            <style>
+              <style-rule element='pane'>
+                <format attr='minwidth' value='-1' />
+                <format attr='maxwidth' value='-1' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.0jqf0kg034p2771dpos1c0l27xtq].[cnt:PatientFirstName:qk]</rows>
+        <cols>[federated.0jqf0kg034p2771dpos1c0l27xtq].[none:PatientCity:nk]</cols>
+      </table>
+    </worksheet>
+    <worksheet name='Sheet 2'>
+      <table>
+        <view>
+          <datasources />
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+          </pane>
+        </panes>
+        <rows />
+        <cols />
+      </table>
+    </worksheet>
+  </worksheets>
+  <windows source-height='30'>
+    <window class='worksheet' maximized='true' name='Sheet 1'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{695E3DC4-EE5A-4583-B7F3-A196764EDCFE}' />
+    </window>
+    <window class='worksheet' name='Sheet 2'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{B543CBD1-E382-458D-BF9D-F3A2F0653175}' />
+    </window>
+  </windows>
+</workbook>
