@@ -570,13 +570,13 @@ DENY SELECT, INSERT, UPDATE, DELETE ON [tblClinic]      TO [Public]
 DENY SELECT, INSERT, UPDATE, DELETE ON [tblAppointment] TO [Public]
 DENY SELECT, INSERT, UPDATE, DELETE ON [tblDoctor]      TO [Public]
 DENY SELECT, INSERT, UPDATE, DELETE ON [tblPatient]     TO [Public]
-GRANT SELECT  ON [vAllClinics] TO [Public]
-GRANT SELECT  ON [vAllDoctors] TO [Public]
+GRANT SELECT  ON [vAllClinics]           TO [Public]
+GRANT SELECT  ON [vAllDoctors]           TO [Public]
 GRANT EXECUTE ON uspUpdateAppointment    TO [Public]
 GRANT EXECUTE ON uspNewPatient           TO [Public]
 GRANT EXECUTE ON uspUpdatePatient        TO [Public]
 GRANT EXECUTE ON uspNewAppointment       TO [Public]
-GRANT SELECT ON fPatientsOwnInformation TO [Public]
+GRANT SELECT ON fPatientsOwnInformation  TO [Public]
 GRANT SELECT ON vAppointmentsByPatientsDoctorsAndClinics TO [Public]
 GO
 
@@ -712,7 +712,6 @@ SELECT CASE @Status
   END AS [Status]
 GO
 
-/*
 -- Importing mock data from files
 INSERT INTO tblPatient
 SELECT * FROM [Davis_temp_FinalDB].[dbo].patient_list
@@ -743,6 +742,5 @@ GO
 SELECT * FROM vAllPatients
 GO
 
-SELECT * FROM fPatientsOwnInformation(1)
+SELECT * FROM fPatientsOwnInformation(2)
 GO
-*/
