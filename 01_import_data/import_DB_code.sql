@@ -14,3 +14,5 @@ Use Davis_temp_FinalDB;
 go
 
 SELECT * FROM patient_list
+
+SELECT * FROM appointment_list
