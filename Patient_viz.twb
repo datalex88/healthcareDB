@@ -21,11 +21,11 @@
         <relation connection='sqlserver.1liq73t19kqjlh14bt3os13nl7e9' name='tblPatient' table='[dbo].[tblPatient]' type='table' />
         <metadata-records>
           <metadata-record class='column'>
-            <remote-name>PatientId</remote-name>
+            <remote-name>PatientID</remote-name>
             <remote-type>3</remote-type>
-            <local-name>[PatientId]</local-name>
+            <local-name>[PatientID]</local-name>
             <parent-name>[tblPatient]</parent-name>
-            <remote-alias>PatientId</remote-alias>
+            <remote-alias>PatientID</remote-alias>
             <ordinal>1</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
@@ -196,7 +196,7 @@
       </column>
       <column caption='Patient City' datatype='string' name='[PatientCity]' role='dimension' type='nominal' />
       <column caption='Patient First Name' datatype='string' name='[PatientFirstName]' role='dimension' type='nominal' />
-      <column caption='Patient Id' datatype='integer' name='[PatientId]' role='dimension' type='ordinal' />
+      <column caption='Patient Id' datatype='integer' name='[PatientID]' role='dimension' type='ordinal' />
       <column caption='Patient Last Name' datatype='string' name='[PatientLastName]' role='dimension' type='nominal' />
       <column caption='Patient Phone Number' datatype='string' name='[PatientPhoneNumber]' role='dimension' type='nominal' />
       <column caption='Patient State' datatype='string' name='[PatientState]' role='dimension' type='nominal' />

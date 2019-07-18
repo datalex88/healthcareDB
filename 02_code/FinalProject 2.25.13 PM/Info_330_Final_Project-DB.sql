@@ -25,7 +25,7 @@ Use InfoFinalDB_Davisa88;
 -- Create a new table called '[tblPatient]' in schema '[dbo]'
 CREATE TABLE [dbo].[tblPatient]
 (
-  [PatientId]          INT IDENTITY(1,1) PRIMARY KEY NOT NULL, -- Primary Key column, auto increment
+  [PatientID]          INT IDENTITY(1,1) PRIMARY KEY NOT NULL, -- Primary Key column, auto increment
   [PatientFirstName]   NVARCHAR(50)      NOT NULL,
   [PatientLastName]    NVARCHAR(50)      NOT NULL,
   [PatientPhoneNumber] NVARCHAR(50)      NOT NULL,
@@ -34,15 +34,16 @@ CREATE TABLE [dbo].[tblPatient]
   [PatientCity]        NVARCHAR(50)      NOT NULL,
   [PatientState]       NVARCHAR(2)       NOT NULL,
   [PatientZip]         NVARCHAR(5)       NOT NULL,
-      CHECK ([PatientZip] LIKE '[0-9][0-9][0-9][0-9][0-9]'),
-      UNIQUE ([PatientPhoneNumber])
+    CHECK  ([PatientPhoneNumber]  LIKE '([0-9][0-9][0-9]) [0-9][0-9][0-9][0-9][0-9][0-9][0-9]'),
+    CHECK ([PatientZip]           LIKE '[0-9][0-9][0-9][0-9][0-9]'),
+    UNIQUE ([PatientPhoneNumber])
 );
 GO
 
 -- Create a new table called '[tblDoctor]' in schema '[dbo]'
 CREATE TABLE [dbo].[tblDoctor]
 (
-  [DoctorId]        INT IDENTITY(1,1) PRIMARY KEY NOT NULL, -- Primary Key column, auto increment
+  [DoctorID]        INT IDENTITY(1,1) PRIMARY KEY NOT NULL, -- Primary Key column, auto increment
   [DoctorFirstName] NVARCHAR(50)      NOT NULL,
   [DoctorLastName]  NVARCHAR(50)      NOT NULL
 );
@@ -67,14 +68,21 @@ GO
 -- The patient will be able to pick their preferred doctor and clinic
 CREATE TABLE [dbo].[tblAppointment]
 (
-  [AppointmentId]   INT IDENTITY(1,1) PRIMARY KEY NOT NULL, -- Primary Key column, auto increment
-  [PatientId]       INTEGER FOREIGN KEY REFERENCES tblPatient (PatientId) NOT NULL,
-  [DoctorId]        INTEGER FOREIGN KEY REFERENCES tblDoctor  (DoctorId)  NOT NULL,
+  [AppointmentID]   INT IDENTITY(1,1) PRIMARY KEY NOT NULL, -- Primary Key column, auto increment
+  [PatientID]       INTEGER FOREIGN KEY REFERENCES tblPatient (PatientID) NOT NULL,
+  [DoctorID]        INTEGER FOREIGN KEY REFERENCES tblDoctor  (DoctorId)  NOT NULL,
   [ClinicID]        INTEGER FOREIGN KEY REFERENCES tblClinic  (ClinicID)  NOT NULL,
   [AppointmentDate] DATETIME NOT NULL
       --CHECK ((GETDATE()) < [AppointmentDate]) This would be a check to not allow appointments to be created in the past
       --But for practicality and this project I am not going to run it
 );
+GO
+
+-- This will prevent appointments being created with the same patientID, doctorID and Date
+CREATE UNIQUE NONCLUSTERED INDEX [UIX_tblAppointment_PatientID_DoctorID_Date]
+    ON [tblAppointment]
+    ( [PatientID] ASC, [DoctorID] ASC, [AppointmentDate] ASC )
+    WITH (IGNORE_DUP_KEY = ON);
 GO
 
 --***********************************************************************************************--
@@ -97,17 +105,17 @@ CREATE FUNCTION fPatientsOwnInformation(@PatientID INT)
   RETURNS TABLE
   AS
     RETURN(
-      SELECT P.PatientId AS 'Patient ID', 
+      SELECT P.PatientID AS 'Patient ID', 
       P.PatientFirstName + ' ' + P.PatientLastName AS 'Patient Name',
       D.DoctorFirstName  + ' ' + D.DoctorLastName  AS 'Doctor',
-      A.AppointmentId                              AS 'AppointmentID',
+      A.AppointmentID                              AS 'AppointmentID',
       FORMAT(A.AppointmentDate, 'd', 'en-us')      AS 'Appointment Date',
       CONVERT(TIME, AppointmentDate)               AS 'Time'
       FROM tblAppointment AS A
-      JOIN tblPatient     AS P ON A.PatientId = P.PatientId
-      JOIN tblClinic      AS C ON A.ClinicId  = C.ClinicId
+      JOIN tblPatient     AS P ON A.PatientID = P.PatientID
+      JOIN tblClinic      AS C ON A.ClinicID  = C.ClinicID
       JOIN tblDoctor      AS D ON A.DoctorId  = D.DoctorId
-      WHERE P.PatientId = @PatientID
+      WHERE P.PatientID = @PatientID
     )
 GO
 
@@ -122,8 +130,8 @@ SELECT
   C.ClinicName AS 'Clinic Name',
   C.ClinicAddress    + ' ' + C.ClinicCity  + ', ' + C.ClinicState  + ' ' + C.ClinicZip  AS 'Clinic Address'
   FROM tblAppointment AS A
-    JOIN tblPatient     AS P ON A.PatientId = P.PatientId
-    JOIN tblClinic      AS C ON A.ClinicId  = C.ClinicId
+    JOIN tblPatient     AS P ON A.PatientID = P.PatientID
+    JOIN tblClinic      AS C ON A.ClinicID  = C.ClinicID
     JOIN tblDoctor      AS D ON A.DoctorId  = D.DoctorId
 GO
 
@@ -375,7 +383,7 @@ AS
         [PatientCity]        = @PatientCity,
         [PatientState]       = @PatientState,
         [PatientZip]         = @PatientZip        
-      WHERE PatientId        = @PatientID
+      WHERE PatientID        = @PatientID
       COMMIT TRAN 
       SET @RC = +1;
     END TRY  
@@ -412,7 +420,7 @@ AS
         [DoctorID]        = @DoctorID,
         [ClinicID]        = @ClinicID,
         [AppointmentDate] = @AppointmentDate
-      WHERE AppointmentId = @AppointmentID
+      WHERE AppointmentID = @AppointmentID
       COMMIT TRAN 
       SET @RC = +1;
     END TRY  
@@ -550,7 +558,7 @@ CREATE PROCEDURE uspDeleteAppointment (@AppID INTEGER)
         BEGIN TRAN    
         -- Transaction Code --
         DELETE FROM tblAppointment
-        WHERE AppointmentId = @AppID
+        WHERE AppointmentID = @AppID
         COMMIT TRAN 
         SET @RC = +1;
       END TRY  
