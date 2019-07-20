@@ -53,7 +53,7 @@ EXEC @Status = uspNewAppointment
   @PatientID = 1,
   @DoctorID  = 1,
   @ClinicID  = 1,
-  @AppointmentDate  = '2019-07-16 08:30';
+  @AppointmentDate  = '2019-07-16 09:30';
 SELECT CASE @Status
   WHEN +1 THEN 'Insert Appointment was successful!'
   WHEN -1 THEN 'Insert Appointment Failed!'
@@ -161,10 +161,7 @@ GO
 SELECT * FROM fPatientsOwnInformation(5)
 GO
 
-SELECT * FROM vAllClinics
-GO
-
-SELECT * FROM vAllDoctors
+SELECT * FROM vAllClinicsAndPatients
 GO
 
 SELECT * FROM vAllPatients

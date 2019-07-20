@@ -87,16 +87,15 @@ GO
 
 --***********************************************************************************************--
 -- 3) Create the views ---------------------------------------------------------
-CREATE VIEW vAllClinics AS -- View for all available clinic locations
-SELECT * FROM [tblClinic]
+CREATE VIEW vAllClinicsAndPatients AS -- View for all available clinic locations and their patients
+SELECT ClinicName, PatientFirstName
+FROM [tblPatient] P
+JOIN tblAppointment A ON P.PatientId = A.PatientId
+JOIN tblClinic      C ON A.ClinicID  = C.ClinicID
 GO
 
 CREATE VIEW vAllPatients AS -- View for all available patients
 SELECT * FROM [tblPatient]
-GO
-
-CREATE VIEW vAllDoctors AS -- View for all available patients
-SELECT * FROM [tblDoctor]
 GO
 
 -- This is a view that ideally patients would use to find their information only...
@@ -583,6 +582,6 @@ GRANT EXECUTE ON uspUpdateAppointment    TO [Public]
 GRANT EXECUTE ON uspNewPatient           TO [Public]
 GRANT EXECUTE ON uspUpdatePatient        TO [Public]
 GRANT EXECUTE ON uspNewAppointment       TO [Public]
-GRANT SELECT ON fPatientsOwnInformation  TO [Public]
-GRANT SELECT ON vAppointmentsByPatientsDoctorsAndClinics TO [Public]
+GRANT SELECT ON  fPatientsOwnInformation TO [Public]
+GRANT SELECT ON  vAppointmentsByPatientsDoctorsAndClinics TO [Public]
 GO
