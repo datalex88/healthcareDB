@@ -158,11 +158,10 @@ GO
 SELECT * FROM vAppointmentsByPatientsDoctorsAndClinics
 GO
 
-SELECT * FROM fPatientsOwnInformation(5)
-GO
-
 SELECT * FROM vAllClinicsAndPatients
 GO
 
 SELECT * FROM vAllPatients
 GO
+
+SELECT * FROM [Davis_temp_FinalDB].[dbo].appointment_list
